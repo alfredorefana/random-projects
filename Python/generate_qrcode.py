@@ -23,9 +23,11 @@ qr.make(fit = True)                 # make(): This method with (fit=True) ensure
 
 # Create an image from the generated QR-Code. You can change the colors
 # make_image(): This method is used to convert the QRCode object into an image file. It takes the fill_color and back_color optional parameters to set the foreground and background color.
-image = qr.make_image(fill_color = "black",     # foreground color 
+qr_color = 'black'
+image = qr.make_image(fill_color = qr_color,     # foreground color 
                       back_color = "white")     # background color
 
 # Save the created image in the parent directory the script location
-image.save("qr_code.png")
+filename = "./Brouillon/qr_code_%s.png" % qr_color
+image.save(filename)
 #image.open("qr_code.png") ## Somehow not VSCode on Windows is not able to open the image
