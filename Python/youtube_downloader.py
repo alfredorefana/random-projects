@@ -8,10 +8,12 @@ Requirements:
 
 # Importing the library
 from pytube import YouTube
+from pytube.cli import on_progress
 
 def VideoDowload(link):
     """ Function to download video with the highest available resolution """
-    youtubeObject = YouTube(link)
+    youtubeObject = YouTube(link, 
+                            on_progress_callback=on_progress)
     youtubeObjectStream = youtubeObject.streams.get_highest_resolution()
     try:
         video_title = youtubeObject.title
@@ -19,7 +21,7 @@ def VideoDowload(link):
         youtubeObjectStream.download()
     except:
         print("Oops ... Something is wrong...")
-    print("Download is completed successfully")
+    print("\n Download is completed successfully")
 
 link = input("Copy here the YouTube video URL: ")
 VideoDowload(link)
