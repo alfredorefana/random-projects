@@ -10,10 +10,8 @@ Requirements:
 from pytube import YouTube
 from pytube.cli import on_progress
 
-def VideoDowload(link):
-    """ Function to download video with the highest available resolution """
-    youtubeObject = YouTube(link, 
-                            on_progress_callback=on_progress)
+def VideoDowload(youtubeObject):
+    """ Function to download video with the highest available resolution. """
     youtubeObjectStream = youtubeObject.streams.get_highest_resolution()
     try:
         video_title = youtubeObject.title
@@ -21,8 +19,15 @@ def VideoDowload(link):
         youtubeObjectStream.download()
     except:
         print("Oops ... Something is wrong...")
-    print("\n Download is completed successfully")
+    print("\n Download is completed successfully.")
+
+def mp3Downloader(link):
+    """ Function to extact audio from an YouTube Video. """
+    
+
 
 if __name__ == '__main__':
     link = input("Copy here the YouTube video URL: \n>> ")
-    VideoDowload(link)
+    youtubeObject = YouTube(link, 
+                        on_progress_callback=on_progress)
+    VideoDowload(youtubeObject)
