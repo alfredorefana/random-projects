@@ -11,7 +11,7 @@ from pytube import YouTube
 from pytube.cli import on_progress
 import os
 
-def VideoDowload(youtubeObject, video_title):
+def videoDowloader(youtubeObject, video_title):
     """ Function to download video with the highest available resolution. """
     youtubeObjectStream = youtubeObject.streams.get_highest_resolution()
     try:
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     mp3Downloader(youtubeObject, video_title)
 
     # For downloading video with the highest available resolution 
-    VideoDowload(youtubeObject, video_title)
+    videoDowloader(youtubeObject, video_title)
