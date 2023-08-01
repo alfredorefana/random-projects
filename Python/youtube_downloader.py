@@ -14,7 +14,8 @@ def VideoDowload(link):
     youtubeObject = YouTube(link)
     youtubeObjectStream = youtubeObject.streams.get_highest_resolution()
     try:
-        print("Donwloading ....")
+        video_title = youtubeObject.title
+        print("Donwloading video: %s ...." % video_title)
         youtubeObjectStream.download()
     except:
         print("Oops ... Something is wrong...")
