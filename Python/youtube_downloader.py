@@ -23,7 +23,8 @@ def VideoDowload(youtubeObject, video_title):
 
 def mp3Downloader(youtubeObject, video_title):
     """ Function to extact audio from an YouTube Video. """
-    audio_stream = youtubeObject.streams.filter(only_audio = True).first()
+    #audio_stream = youtubeObject.streams.filter(only_audio = True).first()
+    audio_stream = youtubeObject.streams.get_audio_only()
     try:
         print("\n Extacting audio from a YouTube video: %s ...." % video_title)
         audio = audio_stream.download()         # Download the file
