@@ -23,5 +23,6 @@ def VideoDowload(link):
         print("Oops ... Something is wrong...")
     print("\n Download is completed successfully")
 
-link = input("Copy here the YouTube video URL: ")
-VideoDowload(link)
+if __name__ == '__main__':
+    link = input("Copy here the YouTube video URL: \n>> ")
+    VideoDowload(link)
