@@ -1,9 +1,13 @@
 """
 Tired of ads and website downloader, so this script came to mind.
-Basically, it takes the Youtube URL of the video and dowload the highest available resolution using pytube library
+Basically, it takes the Youtube URL of the video and dowload the highest available resolution using pytube library.
+
+Also a new function for downloading an MP3 has been added. 
 
 Requirements:
 - pytube 
+
+Be mindfull of the Copyrights ©️. 
 """
 
 # Importing the library
