@@ -8,7 +8,7 @@
 
 # Creating the file to save the result of checks
 date=`date +"%Y%m%dT%H%M%S"`
-file=/root/suspicious_ips/logs/check_of-${date}.txt
+file=/root/suspicious_ips/logs/check_of_${date}.txt
 touch $file
 
 # Get top-10 list of IP Address accessing  WordPress website
@@ -30,5 +30,7 @@ while read -r line; do
                 /usr/sbin/iptables -A INPUT -s $ip -j DROP # adding the rule to drop the traffic
                 /usr/sbin/iptables-save > /opt/bitnami/iptables-rules # iptables rules active even after rebooting the server
                 #echo "$(cat /opt/bitnami/iptables-rules)"
+        else
+                #    echo "No new IP with high traffic."                
         fi
 done < $file
