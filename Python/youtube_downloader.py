@@ -39,7 +39,7 @@ def mp3Downloader(youtubeObject, video_title):
         print("Oops ... Something is wrong...")
     print("\n Download is completed successfully.")
 
-def tasks(choix):
+def tasks(choix, youtubeObject, video_title):
     """ Function for the dowload. """
     if choix == 1:
         # For downloading MP3
@@ -59,15 +59,9 @@ if __name__ == '__main__':
     
     choix = int(input("What do you want to donwload? \n 1. Audio\n 2. Video\n 3. Both\n >>  "))
 
-    if choix == 1:
-        # For downloading MP3
-        mp3Downloader(youtubeObject, video_title)
-    elif choix == 2:
-        # For downloading video with the highest available resolution 
-        videoDowloader(youtubeObject, video_title)
-    elif choix == 3:
-        mp3Downloader(youtubeObject, video_title)
-        videoDowloader(youtubeObject, video_title)
+    if choix in [1, 2, 3]:
+        tasks(choix, youtubeObject, video_title)
     else:
-        print("Goddamn it. Choose from the number above: 1 or 2 or 3.")
+        print("Goddamn it. Choose from the number: 1 or 2 or 3.")
         choix = int(input("What do you want to donwload? \n 1. Audio\n 2. Video\n 3. Both\n >>  "))
+        tasks(choix, youtubeObject, video_title)
