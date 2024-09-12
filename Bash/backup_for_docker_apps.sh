@@ -10,15 +10,13 @@ BACKUP_CMD='/bin/tar -cvzf'
 cd $WORK_DIR
 
 for app in *; do
-        echo ' '
-        echo '=============================================='
+        echo '\n ============================================== \n'
 
         DEST_BKP_FILE="$DEST_DIR/$app-$TIME_STAMP.tar.gz"
         sudo $BACKUP_CMD $DEST_BKP_FILE $app/*
         echo 'The generated backup file is: ' $DEST_BKP_FILE
 
-        echo '=============================================='
-        echo ' '
+        echo '\n ============================================== \n'
 done
 
 # Deleting old backups for more than 5 days
